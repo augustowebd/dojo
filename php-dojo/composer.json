@@ -1,0 +1,30 @@
+{
+    "name": "augustowebd/app-dojo",
+    "description": "Utilitario que conveter dados do SGDB em Agregado no ES",
+    "type": "project",
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "augustowebd",
+            "email": "augustowebd@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dojo\\": "src/",
+            "App\\": "application/"
+        }
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "process-timeout":0
+    },
+    "require": {
+        "elasticsearch/elasticsearch": "^6.7"
+    },
+    "scripts": {
+        "docker-up":    ["docker-compose --file ./../infra/docker-compose.yml up"],
+        "docker-down":  [ "docker-compose --file ./../infra/docker-compose.yml down" ],
+        "docker-reset": ["@docker-down", "@docker-up"]
+    }
+}
